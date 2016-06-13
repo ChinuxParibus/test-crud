@@ -7,12 +7,34 @@
 </head>
 <body ng-app="crud">
 	<!-- Vista principal de la aplicación -->
-	<div class="container">
-		<table>
-			<tr>
-				<td></td>
-			</tr>
+	<div class="container" ng-controller="CrudCtrl">
+		<h1>Lista de Usuarios</h1>
+		<form novalidate>
+			<input type="text" ng-model="u.nombre" placeholder="Nombre">
+			<input type="number" ng-model="u.edad" placeholder="Edad">
+			<label for="masculino">Masculino</label>
+			<input type="radio" id="masculino" value="M" ng-model="u.sexo">
+			<label for="femenino">Femenino</label>
+			<input type="radio" id="femenino" value="F" ng-model="u.sexo">
+			<button class="btn btn-sm btn-done" ng-click="agregar(u)">Incluir</button>
+		</form>
+		<table class="table">
+			<thead>
+				<th>Nombre</th>
+				<th>Edad</th>
+				<th>Sexo</th>
+				<th>Opciones</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in usuarios track by $index">
+					<td>{{user.nombre}}</td>
+					<td>{{user.edad}}</td>
+					<td>{{user.sexo}}</td>
+					<td><button class="btn btn-sm btn-error" ng-click="remover($index)">Eliminar</button></td>
+				</tr>
+			</tbody>
 		</table>
+
 	</div>
 	<!-- FIN SECCIÓN -->
 

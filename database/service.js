@@ -26,7 +26,7 @@ angular.module('crud')
 	}
 
 	// Incluye un nuevo registro en la base de datos
-	self.nuevoUsuario = function (usuario) {
+	self.incluirUsuario = function (usuario) {
 		var data = new _usuario(usuario);
 		self.usuarios.push(data);
 		self.actualizarLista();
